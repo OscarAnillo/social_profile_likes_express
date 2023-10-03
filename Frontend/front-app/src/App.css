@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Young+Serif&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.app {
+  margin: 0 auto;
+  height: 100vh;
+}
+
+/* Login */
+.login-div {
+  background-color: #f0f0f0;
+  box-shadow: 3px 5px 8px #eee;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+.login-div .login-title {
+  color: rgb(22, 115, 197);
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.login-div .login-form {
+  width: 100%;
+}
+.MuiInputBase-root {
+  background-color: #fff;
+}
+.bottom-text {
+  font-family: "Montserrat", sans-serif;
+  padding-top: 1em;
+}
+
+/* RegisterPage */
+.reg-div {
+  background-color: #f0f0f0;
+  box-shadow: 3px 5px 8px #eee;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+.reg-title {
+  color: rgb(22, 115, 197);
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.reg-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.text-field {
+  width: 50%;
+}
