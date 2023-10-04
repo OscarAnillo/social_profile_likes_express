@@ -3,11 +3,12 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", serif;
 }
 .app {
+  text-align: center;
   margin: 0 auto;
   height: 100vh;
+  width: 90%;
 }
 
 /* Login */
@@ -72,7 +73,6 @@
 .profile-div {
   box-shadow: 3px 5px 8px #eee;
   margin: 1em auto;
-  width: 90%;
 }
 .profile-container {
   margin: 0 auto;
@@ -111,4 +111,46 @@
   color: #5c5b5b;
   padding: 1em 0;
   text-align: justify;
+}
+
+/* Home */
+.home-div {
+  display: block;
+}
+
+/* PostsCard */
+.post-div {
+  margin: 1em 0;
+}
+.MuiCard-root {
+  margin-bottom: 1.5em;
+}
+.post-user-img {
+  height: 55px;
+}
+.img-post {
+  height: 500px;
+  width: 100%;
+}
+
+@media (min-width: 750px){
+  .home-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 90%;
+  }
+  .profile-div {
+    width: 25%;
+  }
+  .post-div {
+    width: 50%;
+  }
+  .post-user-img {
+    height: 60px;
+  }
+  .img-post {
+    height: 750px;
+    width: 100%;
+  }
 }
