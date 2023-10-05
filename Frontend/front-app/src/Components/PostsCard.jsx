@@ -1,71 +1,54 @@
-import { useState, useEffect } from "react";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import axios from "axios";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setPosts } from "../Redux/Features/User-slice";
+import { PostCard } from "./PostCard";
 import { Box } from "@mui/material";
-import { MdFavoriteBorder, MdMoreVert, MdShare } from "react-icons/md";
+import axios from "axios";
 
 export default function PostsCard() {
-  const [postData, setPostData] = useState([]);
+  const { posts } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
       .get("http://localhost:3005/posts/all")
       .then((res) => {
-        setPostData(res.data);
+        dispatch(setPosts(res.data));
       })
       .catch(console.log);
-  }, []);
+  }, []); //eslint-disable-line
 
   return (
     <Box component="div" className="post-div">
-      {postData.map((post) => (
-        <Card key={post._id} raised>
-          <CardHeader
-            avatar={
-              <Avatar aria-label="user">
-                <img
-                  src={post.userPicturePath}
-                  alt=""
-                  className="post-user-img"
-                />
-              </Avatar>
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MdMoreVert />
-              </IconButton>
-            }
-            title={`${post.firstName} ${post.lastName}`}
-            subheader={post.createdAt}
+      {posts.map(
+        ({
+          _id,
+          userId,
+          firstName,
+          lastName,
+          description,
+          location,
+          picturePath,
+          userPicturePath,
+          likes,
+          comments,
+          createdAt,
+        }) => (
+          <PostCard
+            key={_id}
+            postId={_id}
+            postUserId={userId}
+            name={`${firstName} ${lastName}`}
+            description={description}
+            location={location}
+            picturePath={picturePath}
+            userPicturePath={userPicturePath}
+            likes={likes}
+            comments={comments}
+            createdAt={createdAt}
           />
-          <CardMedia
-            component="img"
-            className="img-post"
-            image={post.picturePath}
-            alt=""
-          />
-          <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              {post.description}
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <MdFavoriteBorder />
-            </IconButton>
-            <IconButton aria-label="share">
-              <MdShare />
-            </IconButton>
-          </CardActions>
-        </Card>
-      ))}
+        )
+      )}
     </Box>
   );
 }

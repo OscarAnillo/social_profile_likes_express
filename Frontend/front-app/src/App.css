@@ -82,7 +82,7 @@
 .row {
   display: flex;
   align-items: center;
-  padding: 1em 0;
+  padding: .6em 0;
   /* border: 1px solid red; */
 }
 .profile-container .row img {
@@ -133,18 +133,21 @@
   width: 100%;
 }
 
+.ad-div {
+  display: none;
+}
+
 @media (min-width: 750px){
   .home-div {
     display: flex;
     align-items: flex-start;
-    justify-content: space-around;
-    width: 90%;
+    justify-content: space-between;
   }
   .profile-div {
     width: 25%;
   }
   .post-div {
-    width: 50%;
+    width: 45%;
   }
   .post-user-img {
     height: 60px;
@@ -152,5 +155,17 @@
   .img-post {
     height: 750px;
     width: 100%;
+  }
+  .ad-div {
+    display: block;
+    box-shadow: 3px 5px 8px #eee;
+    margin: 1em 0 0 1em;
+    padding: 1em;
+    width: 25%;
+  }
+  .ad-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }

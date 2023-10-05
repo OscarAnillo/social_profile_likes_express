@@ -12,7 +12,7 @@ export const ProfileCard = () => {
           <img src={user.picturePath} alt="" />
           <Box>
             <Typography variant="h5" className="profile-name">
-              Oscar Anillo
+              {user.firstName} {user.lastName}
             </Typography>
             <Typography className="profile-detail">
               {user.occupation}
